@@ -1,0 +1,2 @@
+// Server-only modules: database client, external API clients, domain services.
+// Nothing in here should ever be imported by a Client Component.
