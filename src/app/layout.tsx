@@ -36,6 +36,8 @@ const jsonLd = {
   description: siteConfig.description,
   url: siteConfig.url,
   image: `${siteConfig.url}/opengraph-image`,
+  telephone: siteConfig.phone,
+  email: siteConfig.email,
   areaServed: 'ID',
   address: {
     '@type': 'PostalAddress',
