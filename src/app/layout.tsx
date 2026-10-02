@@ -5,9 +5,12 @@ import { ErrorBoundary } from '@/components/error-boundary';
 import { Providers } from '@/components/providers';
 import { RoutedErrorBoundary } from '@/components/routed-error-boundary';
 import { siteConfig } from '@/config/site';
+import { organizationId } from '@/lib/seo';
 import { publicEnv } from '@/lib/env';
 
 import '@/styles/globals.css';
+import '@/styles/services.css';
+import '@/styles/site-nav.css';
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -34,6 +37,7 @@ export const metadata: Metadata = {
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'ProfessionalService',
+  '@id': organizationId,
   name: siteConfig.name,
   description: siteConfig.description,
   url: siteConfig.url,

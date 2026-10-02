@@ -1,0 +1,156 @@
+.svc-hero {
+  padding-block: clamp(56px, 8vw, 112px) clamp(56px, 7vw, 96px);
+  border-bottom: 1px solid var(--c-border);
+}
+.svc-hero h1 {
+  font-size: clamp(40px, 6vw, 80px);
+  line-height: 1;
+  letter-spacing: -0.055em;
+  max-width: 900px;
+  margin-top: 22px;
+}
+.svc-hero h1 em {
+  color: var(--c-indigo);
+  font-style: normal;
+}
+.svc-hero .hero-intro {
+  max-width: 620px;
+}
+
+.svc-breadcrumb ol {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 11px;
+  color: var(--c-muted-text);
+}
+.svc-breadcrumb li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.svc-breadcrumb li + li::before {
+  content: '/';
+  color: var(--c-muted-text-soft);
+}
+.svc-breadcrumb a:hover {
+  color: var(--c-indigo);
+}
+.svc-breadcrumb [aria-current='page'] {
+  color: var(--c-navy);
+}
+
+.svc-split {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: clamp(40px, 8vw, 120px);
+  align-items: start;
+}
+.svc-split h2 {
+  font-size: clamp(34px, 4.4vw, 58px);
+  line-height: 1.04;
+  letter-spacing: -0.05em;
+}
+.svc-prose p {
+  font-size: 15px;
+  line-height: 1.85;
+  color: var(--c-muted-text);
+}
+.svc-prose p + p {
+  margin-top: 18px;
+}
+
+.svc-checklist {
+  list-style: none;
+  margin: 26px 0 0;
+  padding: 0;
+  border-top: 1px solid var(--c-border-strong);
+}
+.svc-checklist li {
+  padding: 13px 0;
+  border-bottom: 1px solid var(--c-border);
+  font-size: 13px;
+  color: var(--c-navy);
+  display: flex;
+  gap: 12px;
+}
+.svc-checklist li::before {
+  content: '';
+  flex: none;
+  width: 5px;
+  height: 5px;
+  margin-top: 7px;
+  background: var(--c-indigo);
+  transform: rotate(45deg);
+}
+
+.svc-row-link {
+  display: block;
+}
+.svc-row-link:focus-visible {
+  outline: 2px solid var(--c-indigo);
+  outline-offset: 2px;
+}
+
+/* Process steps reuse .service-row minus its trailing chevron column. The
+   mobile layout in globals.css already works without it. */
+@media (min-width: 641px) {
+  .svc-steps .service-row {
+    grid-template-columns: 70px minmax(200px, 0.85fr) 1.3fr;
+  }
+}
+
+.svc-faq {
+  border-top: 1px solid var(--c-border-strong);
+}
+.svc-faq details {
+  border-bottom: 1px solid var(--c-border);
+}
+.svc-faq summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 22px 0;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--c-navy);
+}
+.svc-faq summary::-webkit-details-marker {
+  display: none;
+}
+.svc-faq summary::after {
+  content: '+';
+  flex: none;
+  font-family: var(--app-font-mono);
+  color: var(--c-indigo);
+}
+.svc-faq details[open] summary::after {
+  content: '−';
+}
+.svc-faq summary:focus-visible {
+  outline: 2px solid var(--c-indigo);
+  outline-offset: 2px;
+}
+.svc-faq p {
+  padding: 0 0 22px;
+  max-width: 760px;
+  font-size: 14px;
+  line-height: 1.8;
+  color: var(--c-muted-text);
+}
+
+.svc-more {
+  margin-top: 28px;
+}
+
+@media (max-width: 900px) {
+  .svc-split {
+    grid-template-columns: 1fr;
+  }
+}
