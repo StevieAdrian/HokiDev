@@ -1,5 +1,5 @@
 export function CapabilityStrip() {
-  const capabilities = ['Web', 'Mobile', 'Desktop', 'POS', 'Sistem Internal', 'API', 'Otomasi', 'SEO'];
+  const capabilities = ['Web', 'Mobile', 'Desktop', 'POS', 'External API', 'Otomasi', 'SEO'];
   return (
     <div className="cap-strip" aria-label="Kemampuan HokiDev">
       <div className="container-wide cap-items">

@@ -26,7 +26,7 @@ export function ProductCollage() {
       </div>
       <div className="collage-frame collage-note">
         <small>02 / STATUS API</small>
-        <p>Semua sistem terhubung.<br />Tools Anda akhirnya saling bicara.</p>
+        <p>Semua sistem saling terhubung.<br />Tools Anda akhirnya saling bicara.</p>
         <Code2 size={18} />
       </div>
       <div className="collage-frame collage-mobile">
