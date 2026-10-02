@@ -26,7 +26,7 @@ export function SiteHeader() {
         </nav>
         <button
           className="button-primary topbar-cta"
-          onClick={() => openWhatsApp()}
+          onClick={() => openWhatsApp(undefined, 'nav_desktop')}
           data-testid="button-nav-project"
         >
           Mulai Proyek <ArrowUpRight size={14} />
@@ -54,7 +54,7 @@ export function SiteHeader() {
               {links.map(([label, href]) => (
                 <a href={href} key={href} onClick={() => setMenuOpen(false)} data-testid={`link-mobile-${label.toLowerCase()}`}>{label}</a>
               ))}
-              <button className="button-primary" onClick={() => { setMenuOpen(false); openWhatsApp(); }} data-testid="button-mobile-project">
+              <button className="button-primary" onClick={() => { setMenuOpen(false); openWhatsApp(undefined, 'nav_mobile'); }} data-testid="button-mobile-project">
                 Mulai Proyek <ArrowUpRight size={14} />
               </button>
             </div>

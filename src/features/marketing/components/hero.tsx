@@ -15,7 +15,7 @@ export function Hero() {
           <h1>Software yang <em>mengikuti</em> cara bisnis Anda.</h1>
           <p className="hero-intro">Dari website dan aplikasi mobile sampai sistem bisnis custom, HokiDev mengubah ide dan masalah operasional menjadi produk digital yang pas dengan cara kerja Anda sehari-hari.</p>
           <div className="hero-actions">
-            <button className="button-primary" onClick={() => openWhatsApp()} data-testid="button-hero-project">Mulai Proyek <ArrowUpRight size={15} /></button>
+            <button className="button-primary" onClick={() => openWhatsApp(undefined, 'hero')} data-testid="button-hero-project">Mulai Proyek <ArrowUpRight size={15} /></button>
             <a className="button-secondary" href="#services" data-testid="link-hero-explore">Lihat Layanan Kami <ArrowDownRight size={15} /></a>
           </div>
           <div className="hero-meta">
