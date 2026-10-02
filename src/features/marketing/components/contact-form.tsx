@@ -6,6 +6,7 @@ import { Check, Send } from 'lucide-react';
 import { Reveal } from '@/features/marketing/components/reveal';
 import { SectionLabel } from '@/features/marketing/components/section-label';
 import { openWhatsApp } from '@/lib/whatsapp';
+import { trackEvent } from '@/lib/analytics';
 
 type FormState = { name: string; business: string; whatsapp: string; type: string; need: string; description: string };
 
@@ -17,7 +18,8 @@ export function ContactForm() {
     event.preventDefault();
     // Plain newlines: openWhatsApp() URL-encodes the whole message itself.
     const message = `Halo HokiDev, saya ingin mendiskusikan proyek software.\n\nNama: ${form.name}\nBisnis: ${form.business}\nWhatsApp: ${form.whatsapp}\nJenis bisnis: ${form.type}\nKebutuhan: ${form.need}\nDeskripsi proyek: ${form.description}`;
-    openWhatsApp(message);
+    trackEvent('generate_lead', { need: form.need, business_type: form.type || 'unspecified' });
+    openWhatsApp(message, 'contact_form');
     setSent(true);
   };
   return (
