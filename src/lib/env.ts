@@ -19,6 +19,7 @@ export const serverEnv = {
 /** Values safe to expose to the browser. Must be prefixed with NEXT_PUBLIC_. */
 export const publicEnv = {
   siteUrl: process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000',
+  gaId: process.env.NEXT_PUBLIC_GA_ID ?? '',
 } as const;
 
 export { required };
