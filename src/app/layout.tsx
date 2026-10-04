@@ -10,6 +10,7 @@ import { publicEnv } from '@/lib/env';
 
 import '@/styles/globals.css';
 import '@/styles/services.css';
+import '@/styles/blog.css';
 import '@/styles/site-nav.css';
 
 export const metadata: Metadata = {

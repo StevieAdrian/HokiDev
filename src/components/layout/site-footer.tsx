@@ -8,7 +8,7 @@ import { servicePages, servicePath } from '@/features/services/data';
 import { openWhatsApp } from '@/lib/whatsapp';
 
 export function SiteFooter() {
-  const navigation = [['Layanan', '/layanan'], ['Solusi', '/#solutions'], ['Karya', '/#work'], ['Tentang', '/#about'], ['Kontak', '/#contact']];
+  const navigation = [['Layanan', '/layanan'], ['Solusi', '/#solutions'], ['Karya', '/#work'], ['Tentang', '/#about'], ['Blog', '/blog'], ['Kontak', '/#contact']];
   return (
     <footer className="footer">
       <div className="container-wide">
