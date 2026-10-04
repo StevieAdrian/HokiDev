@@ -16,6 +16,7 @@ export function SiteHeader() {
     ['Solusi', '/#solutions'],
     ['Karya', '/#work'],
     ['Tentang', '/#about'],
+    ['Blog', '/blog'],
   ];
   return (
     <header className="topbar">

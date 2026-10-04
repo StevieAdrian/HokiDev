@@ -1,5 +1,7 @@
 import { ArrowDownRight } from 'lucide-react';
 
+import { PostCard } from '@/features/blog/components/post-card';
+import { getPostsForService } from '@/features/blog/data';
 import { Reveal } from '@/features/marketing/components/reveal';
 import { SectionLabel } from '@/features/marketing/components/section-label';
 import { Breadcrumbs } from '@/features/services/components/breadcrumbs';
@@ -17,6 +19,7 @@ import { serviceCrumbs } from '@/features/services/seo';
 
 export function ServiceDetail({ service }: { service: ServicePage }) {
   const related = getRelatedServices(service);
+  const articles = getPostsForService(service.slug).slice(0, 3);
 
   return (
     <>
@@ -169,6 +172,26 @@ export function ServiceDetail({ service }: { service: ServicePage }) {
           </div>
         </div>
       </section>
+
+      {articles.length ? (
+        <section className="section-space">
+          <div className="container-wide">
+            <Reveal>
+              <div className="section-heading">
+                <div>
+                  <SectionLabel>Artikel terkait</SectionLabel>
+                  <h2>Pelajari lebih lanjut</h2>
+                </div>
+              </div>
+            </Reveal>
+            <div className="blog-grid">
+              {articles.map((post) => (
+                <PostCard key={post.slug} post={post} />
+              ))}
+            </div>
+          </div>
+        </section>
+      ) : null}
 
       <section className="section-space">
         <div className="container-wide">
