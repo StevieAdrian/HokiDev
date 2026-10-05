@@ -45,11 +45,20 @@ const jsonLd = {
   image: `${siteConfig.url}/opengraph-image`,
   telephone: siteConfig.phone,
   email: siteConfig.email,
-  areaServed: 'ID',
   address: {
     '@type': 'PostalAddress',
+    addressLocality: 'Jakarta',
+    addressRegion: 'DKI Jakarta',
     addressCountry: 'ID',
   },
+  areaServed: [
+    { '@type': 'City', name: 'Jakarta' },
+    { '@type': 'City', name: 'Bogor' },
+    { '@type': 'City', name: 'Depok' },
+    { '@type': 'City', name: 'Tangerang' },
+    { '@type': 'City', name: 'Bekasi' },
+    { '@type': 'Country', name: 'Indonesia' },
+  ],
 };
 
 export const viewport: Viewport = {

@@ -2,6 +2,10 @@ import type { MetadataRoute } from 'next';
 
 import { blogPath, blogPosts, postLastModified } from '@/features/blog/data';
 import { servicePages, servicePath } from '@/features/services/data';
+import {
+  localServicePages,
+  localServicePath,
+} from '@/features/services/local-data';
 import { absoluteUrl } from '@/lib/seo';
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -25,6 +29,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified,
       changeFrequency: 'monthly' as const,
       priority: 0.8,
+    })),
+    ...localServicePages.map((page) => ({
+      url: absoluteUrl(localServicePath(page.slug)),
+      lastModified,
+      changeFrequency: 'monthly' as const,
+      priority: 0.7,
     })),
     {
       url: absoluteUrl('/blog'),
