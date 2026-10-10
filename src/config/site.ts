@@ -7,6 +7,8 @@ export const siteConfig = {
   locale: 'id_ID',
   phone: '+6285111041607',
   email: 'mail@hokidev.site',
+  /** Official social / business profile URLs, used as schema.org `sameAs`. */
+  sameAs: [] as string[],
 } as const;
 
 export const mainNav: ReadonlyArray<{ title: string; href: string }> = [
