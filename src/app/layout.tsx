@@ -35,11 +35,21 @@ export const metadata: Metadata = {
   },
 };
 
-const jsonLd = {
-  '@context': 'https://schema.org',
+const websiteJsonLd = {
+  '@type': 'WebSite',
+  '@id': `${siteConfig.url}/#website`,
+  name: siteConfig.name,
+  alternateName: ['Hoki Dev', 'hokidev.site'],
+  url: siteConfig.url,
+  inLanguage: 'id-ID',
+  publisher: { '@id': organizationId },
+};
+
+const organizationJsonLd = {
   '@type': 'ProfessionalService',
   '@id': organizationId,
   name: siteConfig.name,
+  alternateName: 'Hoki Dev',
   description: siteConfig.description,
   url: siteConfig.url,
   image: `${siteConfig.url}/opengraph-image`,
@@ -59,6 +69,12 @@ const jsonLd = {
     { '@type': 'City', name: 'Bekasi' },
     { '@type': 'Country', name: 'Indonesia' },
   ],
+  ...(siteConfig.sameAs.length > 0 ? { sameAs: siteConfig.sameAs } : {}),
+};
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [websiteJsonLd, organizationJsonLd],
 };
 
 export const viewport: Viewport = {
