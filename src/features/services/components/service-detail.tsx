@@ -15,10 +15,15 @@ import {
   servicePath,
   type ServicePage,
 } from '@/features/services/data';
+import {
+  getLocalPagesForService,
+  localServicePath,
+} from '@/features/services/local-data';
 import { serviceCrumbs } from '@/features/services/seo';
 
 export function ServiceDetail({ service }: { service: ServicePage }) {
   const related = getRelatedServices(service);
+  const localPages = getLocalPagesForService(service.slug);
   const articles = getPostsForService(service.slug).slice(0, 3);
 
   return (
@@ -187,6 +192,34 @@ export function ServiceDetail({ service }: { service: ServicePage }) {
             <div className="blog-grid">
               {articles.map((post) => (
                 <PostCard key={post.slug} post={post} />
+              ))}
+            </div>
+          </div>
+        </section>
+      ) : null}
+
+      {localPages.length ? (
+        <section className="section-space">
+          <div className="container-wide">
+            <Reveal>
+              <div className="section-heading">
+                <div>
+                  <SectionLabel>Area layanan</SectionLabel>
+                  <h2>
+                    {service.name} <em>di kota Anda</em>
+                  </h2>
+                </div>
+              </div>
+            </Reveal>
+            <div className="service-list">
+              {localPages.map((page, index) => (
+                <ServiceRowLink
+                  key={page.slug}
+                  href={localServicePath(page.slug)}
+                  number={rowNumber(index)}
+                  title={`${page.keyword.charAt(0).toUpperCase()}${page.keyword.slice(1)}`}
+                  description={page.summary}
+                />
               ))}
             </div>
           </div>

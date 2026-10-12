@@ -7,7 +7,9 @@ import {
 
 export type LocalServicePage = {
   slug: string;
+  service: ServiceSlug;
   city: string;
+  summary: string;
   keyword: string;
   metaTitle: string;
   metaDescription: string;
@@ -27,7 +29,10 @@ export type LocalServicePage = {
 export const localServicePages: LocalServicePage[] = [
   {
     slug: 'jasa-pembuatan-website-bekasi',
+    service: 'jasa-pembuatan-website',
     city: 'Bekasi',
+    summary:
+      'Company profile, landing page, dan toko online untuk bisnis dan UMKM di Bekasi, Cikarang, dan sekitarnya.',
     keyword: 'jasa pembuatan website Bekasi',
     metaTitle: 'Jasa Pembuatan Website Bekasi untuk Bisnis & UMKM | HokiDev',
     metaDescription:
@@ -143,6 +148,12 @@ export function getLocalServicePage(
 }
 
 export const localServicePath = (slug: string) => `/layanan/${slug}`;
+
+export function getLocalPagesForService(
+  slug: ServiceSlug,
+): LocalServicePage[] {
+  return localServicePages.filter((page) => page.service === slug);
+}
 
 export function localServiceJsonLd(service: LocalServicePage) {
   const url = absoluteUrl(localServicePath(service.slug));
